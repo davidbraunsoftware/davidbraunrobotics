@@ -1,0 +1,450 @@
+/* Look of davidbraunrobotics.com — academic, clean, Apple-like (approved style of preview v2).
+   All design values are the tokens in :root below: change them here and every page follows.
+   Texts, links and pictures: settings.py. */
+/* Inter font, stored in the site (fonts/, licence fonts/OFL.txt) — no requests to Google */
+@font-face { font-family: Inter; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url(fonts/inter-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Inter; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url(fonts/inter-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+:root {
+  /* ===== QUICK SETTINGS — change these five to restyle the whole site (menu: site-update → Change the look) ===== */
+  --accent: #2a4562;          /* accent color: links, highlights, badges, quote bar (dark mode: --accent-dark) */
+  --accent-dark: #9cc0e6;     /* accent color in dark mode */
+  --text-scale: 1;            /* all text sizes: 0.94 smaller · 1 normal · 1.06 larger · 1.12 largest */
+  --spacing-scale: 1;         /* all spaces: 0.85 compact · 1 normal · 1.15 airy */
+  --rounding-scale: 1;        /* all corners: 0 square · 1 soft · 2 round */
+  --page-width: 1040px;       /* width of the content on large screens: 960 narrower · 1040 normal · 1160 wider */
+  /* ===== detailed settings below: change only if the five above are not enough ===== */
+  /* colors (dark-mode colors: next block) */
+  --bg: #ffffff;
+  --bg-alt: #f5f5f7;
+  --text: #1d1d1f;
+  --text-2: #6e6e73;
+  --line: #e5e5ea;
+  --navy: var(--accent);
+  --tint: #eef4fa;
+  --figure-bg: #ffffff;      /* behind figures with transparent parts (also in dark mode) */
+  --frame-bg: #f5f5f7;       /* picture frames of research and course tiles (white figure backgrounds blend in) */
+  --frame-pad: var(--space-5);         /* space between frame edge and picture */
+  --field-line: #d2d2d7;     /* border of form fields */
+  --button-bg: #ececf0;      /* all buttons (profile links, filters, paper links, contact); white on grey sections */
+  --button-bg-hover: #e1e1e6;
+  --button-active-bg: var(--text); /* selected filter button (near-black) */
+  --button-active-text: var(--bg);
+  --button-text: var(--text-ui);        /* main buttons */
+  --button-pad: var(--space-4) var(--space-6);
+  --button-text-small: var(--text-tiny); /* paper links: DOI, Video, BibTeX */
+  --button-pad-small: var(--space-3) var(--space-5);
+  /* corner rounding */
+  --radius-pic: calc(7px * var(--rounding-scale));         /* ONE rounding for every picture: tiles, pictures in pages, videos, letters */
+  --radius-lg: var(--radius-pic);
+  --radius-md: var(--radius-pic);
+  --radius-sm: var(--radius-pic);
+  --radius-badge: calc(6px * var(--rounding-scale));       /* award badge */
+  --radius-field: calc(12px * var(--rounding-scale));      /* form fields, BibTeX box */
+  --radius-chart: 0;         /* evaluation charts */
+  --chart-width: 600px;      /* evaluation charts: their labels then match the small text size (were too large) */
+  --radius-person: 50%;      /* people photos (50% = circle, e.g. 9px = rounded square) */
+  --radius-pill: calc(980px * var(--rounding-scale));      /* pill buttons */
+  /* sizes */
+  --person-photo: 88px;      /* people photos on the People page */
+  /* Home introduction */
+  --portrait-width: 325px;       /* portrait on desktop */
+  --portrait-phone-max: 280px;   /* portrait on phones: largest … */
+  --portrait-phone-min: 230px;   /* … and smallest; in between it follows the screen height so the buttons stay on the first screen */
+  --portrait-phone-reserve: 400px; /* height needed below the portrait on phones (name, text, buttons) */
+  --portrait-aspect: 0.88;       /* width ÷ height of the portrait picture (374 × 423 px): change with a new photo */
+  --intro-top: var(--space-14);             /* space above the introduction (desktop) */
+  --heading-lead: 5px;           /* space inside a section heading above its capital letters */
+  --text-slack: calc(var(--text-body) * 0.43);   /* empty space a line of reading text carries below its letters */
+  --intro-bottom: calc(var(--section-space) + var(--heading-lead));   /* keeps the line before Research exactly midway */
+  --intro-top-phone: var(--space-8);
+  --intro-bottom-phone: calc(var(--section-space-tablet) + var(--heading-lead));
+  --intro-gap-phone: var(--space-7);       /* portrait → name on phones */
+  --bio-gap-phone: var(--space-6);         /* role line → text on phones */
+  --buttons-gap-phone: var(--space-7);     /* text → buttons on phones */
+  --buttons-space-phone: var(--space-4);    /* between the buttons on phones */
+  --buttons-pad-phone: var(--space-4) var(--space-5); /* button padding on phones: the three buttons fit on one row */
+  /* cut-out portrait (Home): where its edges blend into the page */
+  --portrait-fade-bottom: 82%;   /* shirt fades out below this height */
+  --portrait-fade-sides: 14%;    /* width of the blend at the shoulder edges */
+  --portrait-head-end: 52%;      /* head area above this height is never faded */
+  --portrait-head-blend: 68%;
+  --photo-fade: 1.5%;            /* soft left/right edges of the page photos (Teaching, Testimonials) */
+  --photo-tone: brightness(1.12) contrast(.85) saturate(.78);   /* calmer, lighter page photo; 'none' = original */
+  /* lines */
+  --field-border-width: var(--strong-line-width); /* form fields */
+  --line-width: 1px;         /* all separator lines (between list items, top bar, footer, introduction) */
+  --list-space-phone: var(--space-8);  /* space above and below the line between research items on phones */
+  /* top bar and links */
+  --bar-height: 56px;        /* top bar */
+  --menu-icon: 26px;         /* phone menu (hamburger) icon */
+  --brand-nudge: 1px;        /* moves the name down: optical centring of its capitals in the bar */
+  --link-pad: var(--space-2);           /* above and below menu, footer and back links: 28 px click height */
+  /* widths */
+  --max: var(--page-width);             /* page width */
+  --read: 720px;             /* text column of articles */
+  /* spacing */
+  --section-space: var(--space-14);     /* above and below each section */
+  --section-space-tablet: var(--space-12);   /* the same on tablets and phones */
+  --page-end: var(--section-space);     /* space between the last content of a page and the footer, on every page */
+  --head-gap: var(--space-11);       /* space above and below the line under a page introduction */
+  --head-gap-phone: var(--space-9);  /* the same on phones */
+  --space-xs: var(--space-4);           /* first section after a page heading: classes pt-xs … pt-l */
+  --space-s: var(--space-8);
+  --space-m: var(--space-9);
+  --space-l: var(--space-11);
+  /* text sizes: one scale for the whole site (use these, not pixel values) */
+  --h1: calc(clamp(34px, 5vw, 50px) * var(--text-scale));        /* page headings */
+  --h1-long: calc(clamp(28px, 4vw, 40px) * var(--text-scale));   /* long titles: articles, papers */
+  --h2: calc(clamp(25px, 3vw, 32px) * var(--text-scale));        /* section headings */
+  --h2-small: calc(24px * var(--text-scale));                    /* project and course titles, article sub-headings, years */
+  --h3: calc(20px * var(--text-scale));                          /* tile titles, group headings */
+  --text-quote: calc(clamp(19px, 2.2vw, 23px) * var(--text-scale)); /* large quotes (Teaching) */
+  --text-lead: calc(19px * var(--text-scale));                   /* intro lines under headings, role line */
+  --text-body: calc(17px * var(--text-scale));                   /* reading text, quotes, paper titles */
+  --text-body-phone: calc(16px * var(--text-scale));             /* reading text on small phones (≤ 520 px) */
+  --text-small: calc(15px * var(--text-scale));                  /* secondary text: summaries, dates, authors, Read more */
+  --text-ui: calc(14px * var(--text-scale));                     /* navigation, buttons, captions, credits, footer */
+  --text-tiny: calc(13px * var(--text-scale));                   /* badges, labels, code */
+  --lh-body: 1.6;                      /* line spacing: reading text */
+  --lh-tight: 1.45;                    /* line spacing: titles and secondary text */
+  /* font */
+  --font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  /* ---- SPACING SCALE: every gap, margin and padding uses one of these steps ---- */
+  --space-1: calc(2px * var(--spacing-scale));  --space-2: calc(4px * var(--spacing-scale));  --space-3: calc(6px * var(--spacing-scale));  --space-4: calc(8px * var(--spacing-scale));  --space-5: calc(12px * var(--spacing-scale)); --space-6: calc(16px * var(--spacing-scale)); --space-7: calc(20px * var(--spacing-scale));
+  --space-8: calc(24px * var(--spacing-scale)); --space-9: calc(32px * var(--spacing-scale)); --space-10: calc(40px * var(--spacing-scale)); --space-11: calc(48px * var(--spacing-scale)); --space-12: calc(56px * var(--spacing-scale)); --space-13: calc(64px * var(--spacing-scale)); --space-14: calc(80px * var(--spacing-scale));
+  --page-pad: var(--space-8);        /* left/right page margin */
+  /* ---- widths ---- */
+  --text-width: 680px;               /* intro text under page headings */
+  --quote-width: 820px;              /* large quotes, course evaluations, testimonials, letters */
+  --form-width: 620px;               /* contact form, Home text */
+  --date-width: 120px;               /* date column of news lists */
+  /* ---- line spacing, letter spacing, weights, lines ---- */
+  --lh-heading: 1.2;                 /* headings and buttons (reading text: --lh-body, secondary: --lh-tight) */
+  --para-space: 1.1em;               /* after a paragraph or list in articles */
+  --list-indent: 1.25em;
+  --list-item-space: .4em;
+  --tracking-tight: -0.02em;         /* headings and large quotes */
+  --tracking-caps: .04em;            /* small capital labels */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 600;
+  --strong-line-width: 2px;          /* quote bar, form fields, focus ring */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* ---- specific parts ---- */
+  --bar-opacity: 82%;                /* top bar: how solid its background is */
+  --bar-blur: saturate(180%) blur(18px);
+  --tap-size: 44px;                  /* smallest touch target (phone menu button) */
+  --portrait-frame: 4/5;             /* portrait shape when not a cut-out */
+  --tile-ratio: 3/2;                 /* research and course picture frames */
+  --tile-cols: 3;                    /* research tiles per row: desktop … */
+  --tile-cols-tablet: 2;             /* … tablet … */
+  --tile-cols-phone: 1;              /* … phone */
+  --project-columns: 1fr 1.15fr;     /* picture : text in research and course rows */
+  --people-cols: 2;                  /* people per row on the Alumni page */
+  --band-height: clamp(240px, 42vw, 460px);   /* wide photo bands */
+  --band-focus: center 35%;          /* which part of a band photo stays visible */
+  --video-ratio: 16/9;
+  --video-dim: .92;                  /* video previews slightly dimmed until hovered */
+  --hover-zoom: scale(1.02);
+  --hover-transition: transform .4s ease, opacity .3s;
+  --play-size: 68px;                 /* play button on video previews */
+  --play-bg: rgba(255,255,255,.92);
+  --play-shadow: 0 6px 24px rgba(0,0,0,.25);
+  --play-arrow-left: 27px;           /* the triangle inside the play button */
+  --play-arrow-top: 21px;
+  --play-arrow: 13px 0 13px 21px;
+  --chart-filter: grayscale(1) contrast(1.05);   /* course evaluation charts in grey */
+  --message-height: 170px;           /* contact form message box */
+  --message-height-phone: 110px;     /* the same on phones: the note under the button stays on the first screen */
+  /* Screen-width steps used by the @media lines below (CSS cannot use settings there): tablet/phone ≤ 820 px, small phone ≤ 520 px. */
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111214; --bg-alt: #1a1b1e; --text: #f2f2f4; --text-2: #a1a1a8; --line: #2c2d31; --navy: var(--accent-dark); --tint: #1e2a38;
+           --field-line: #3a3b40; --button-bg: #2c2d31; --button-bg-hover: #3a3b40;
+           --frame-bg: #ffffff; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: var(--text-body)/var(--lh-body) var(--font); -webkit-font-smoothing: antialiased; }
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: var(--space-2); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, h4 { margin: 0; letter-spacing: var(--tracking-tight); line-height: var(--lh-heading); font-weight: var(--weight-bold); }
+h1 { font-size: var(--h1); }
+h2 { font-size: var(--h2); }
+h3 { font-size: var(--h3); line-height: var(--lh-heading); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--page-pad); }
+.narrow { max-width: calc(var(--read) + 2 * var(--page-pad)); }
+section { padding: var(--section-space) 0; }
+.pt-0 { padding-top: 0; }
+.pt-xs { padding-top: var(--space-xs); }
+.pt-s { padding-top: var(--space-s); }
+.pt-m { padding-top: var(--space-m); }
+.pt-l { padding-top: var(--space-l); }
+.alt { background: var(--bg-alt); }
+.muted { color: var(--text-2); }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-7); margin-bottom: var(--space-9); }
+/* small navigation links all look like the menu: 'All … ›', '‹ Back' (one size) */
+.sec-head > a { font-size: var(--text-body); white-space: nowrap; }   /* same size as the reading text */
+.sec-head a::after, .more::after { content: " \203A"; }
+.lead { font-size: var(--text-lead); line-height: var(--lh-tight); color: var(--text-2); max-width: var(--text-width); margin: var(--space-6) 0 0; }
+
+/* top bar */
+.nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) var(--bar-opacity), transparent);
+       backdrop-filter: var(--bar-blur); -webkit-backdrop-filter: var(--bar-blur); border-bottom: var(--line-width) solid var(--line); }
+.nav .wrap { height: var(--bar-height); display: flex; align-items: center; justify-content: space-between; }
+.brand { color: var(--text); font-weight: var(--weight-bold); font-size: var(--text-body); position: relative; top: var(--brand-nudge); }
+.brand:hover { text-decoration: none; }
+.nav ul { list-style: none; display: flex; gap: var(--space-8); margin: 0; padding: 0; font-size: var(--text-ui); }
+.nav ul a { color: var(--text-2); display: inline-block; padding: var(--link-pad) 0; }   /* menu and footer links: same size and same click height (guideline: at least 24 px); back links and 'All …' links use the reading size */
+.nav ul a:hover, .nav ul a.on { color: var(--text); text-decoration: none; }
+.menu-btn { display: none; background: none; border: 0; color: var(--text); cursor: pointer; padding: 0 0 0 var(--space-5); height: var(--tap-size); align-items: center; }
+.menu-btn svg { width: var(--menu-icon); height: var(--menu-icon); }
+
+/* page header (all inner pages) */
+.page-head { padding: var(--space-13) 0 var(--head-gap); border-bottom: var(--line-width) solid var(--line); }
+/* ONE RULE: a full-width line between every page introduction and its content, as on Home, midway */
+.page-head + section, .page-head + .wrap { padding-top: var(--head-gap); }
+/* a photo right under the introduction belongs to it: the line comes after the photo (Teaching, Testimonials) */
+.page-head:has(+ .band) { border-bottom: 0; }
+.page-head + .band { padding-top: 0; padding-bottom: calc(var(--head-gap) + var(--text-slack)); border-bottom: var(--line-width) solid var(--line); }   /* a photo has no text space below it: same visible gap to the line as under an introduction text */
+.page-head + .band + section { padding-top: var(--head-gap); }
+/* the visible white space above and below the line under an introduction is the same on every page: text carries --text-slack
+   above/below its letters; boxes (photos, picture cards, buttons) get it added, so the line is always midway */
+.page-head:has(.filters) { padding-bottom: calc(var(--head-gap) + var(--text-slack)); }
+.page-head + section:has(> .wrap > .project:first-child), .page-head + .band + section:has(> .wrap > .project:first-child) { padding-top: calc(var(--head-gap) + var(--text-slack)); }
+.page-head + section > .wrap > .project:first-child, .page-head + .band + section > .wrap > .project:first-child { padding-top: 0; }
+.page-head + section .form,
+.page-head + section .wrap > .year-h:first-child, .year-h.first-shown, .page-head + .wrap .article, .page-head + .wrap .article > :first-child { padding-top: 0; margin-top: 0; }
+.page-head p { max-width: var(--text-width); margin: var(--space-5) 0 0; color: var(--text-2); }
+.crumb { font-size: var(--text-body); margin-bottom: calc(var(--space-5) - var(--link-pad)); display: inline-block; padding: var(--link-pad) 0; }
+.page-head h1 .sub { display: block; }   /* second line of 'Title: Subtitle' (news articles) */
+.crumb::before { content: "\2039  "; }
+
+/* home intro */
+.intro { padding: var(--intro-top) 0 var(--intro-bottom); border-bottom: var(--line-width) solid var(--line); }   /* line between the introduction and Research (both white) */
+.intro .grid { display: grid; grid-template-columns: var(--portrait-width) 1fr; gap: var(--space-12); align-items: center; }
+.portrait { width: var(--portrait-width); max-width: 100%; aspect-ratio: var(--portrait-frame); object-fit: cover; border-radius: var(--radius-lg); }
+.portrait.cutout { border-radius: 0; background: none; object-fit: contain; object-position: center bottom; aspect-ratio: auto; height: auto;   /* no empty band above the head */
+
+  -webkit-mask-image: linear-gradient(to bottom, #000 var(--portrait-fade-bottom), transparent 100%),
+    linear-gradient(to right, transparent 0, #000 var(--portrait-fade-sides), #000 calc(100% - var(--portrait-fade-sides)), transparent 100%),
+    linear-gradient(to bottom, #000 0, #000 var(--portrait-head-end), transparent var(--portrait-head-blend));
+  mask-image: linear-gradient(to bottom, #000 var(--portrait-fade-bottom), transparent 100%),
+    linear-gradient(to right, transparent 0, #000 var(--portrait-fade-sides), #000 calc(100% - var(--portrait-fade-sides)), transparent 100%),
+    linear-gradient(to bottom, #000 0, #000 var(--portrait-head-end), transparent var(--portrait-head-blend));
+  -webkit-mask-composite: source-in, source-over; mask-composite: intersect, add; }
+.role { font-size: var(--text-lead); color: var(--text-2); margin: var(--space-5) 0 0; }
+.bio { margin: var(--space-7) 0 0; max-width: var(--form-width); }
+.profiles { display: flex; flex-wrap: wrap; gap: var(--space-5); margin-top: var(--space-8); }
+.band { padding: 0 0 var(--space-4); }
+.band-page { padding-top: var(--space-l); }   /* photo under a page heading (Teaching, Testimonials): whole photo, square corners */
+.band.band-page img { height: auto; object-fit: contain; border-radius: 0;   /* whole photo, no crop, no corners; left/right edges soften */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--photo-fade), #000 calc(100% - var(--photo-fade)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--photo-fade), #000 calc(100% - var(--photo-fade)), transparent 100%);
+  filter: var(--photo-tone); }
+.band img { width: 100%; height: var(--band-height); object-fit: cover; object-position: var(--band-focus); border-radius: var(--radius-lg); }
+
+/* research tiles (home) */
+/* tiles in rows of --cols; an incomplete last row starts at the left (owner: not centred) */
+.areas { --cols: var(--tile-cols); --gap-x: var(--space-8); display: flex; flex-wrap: wrap; justify-content: flex-start; gap: var(--space-10) var(--gap-x); }
+.areas .area { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap-x)) / var(--cols));   /* tile width from the column count and gap settings */ }
+/* same-size frames for research and course pictures; whole picture shown, white backgrounds blend into the frame */
+.frame { display: block; overflow: hidden; aspect-ratio: var(--tile-ratio); padding: var(--frame-pad); background: var(--frame-bg); border-radius: var(--radius-md); }
+.frame img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transform: translateY(var(--shift-y, 0)) scale(var(--scale, 1)); }
+.area h3 { margin-top: var(--space-6); }
+.area p { margin: var(--space-3) 0 0; color: var(--text-2); font-size: var(--text-small); line-height: var(--lh-tight); }
+/* whole card is one link: plain text colors, title turns navy on hover */
+a.area, a.project { color: var(--text); text-decoration: none; }
+a.area:hover h3, a.project:hover h2 { color: var(--navy); }
+
+/* research page: alternating rows */
+.project { display: grid; grid-template-columns: var(--project-columns); gap: var(--space-11); align-items: center; padding: var(--space-11) 0; }   /* separator line between rows: see the ONE RULE above */
+.project:nth-child(even) .pic { order: 2; }
+.project h2 { font-size: var(--h2-small); }
+.project p { color: var(--text-2); margin: var(--space-5) 0 0; font-size: var(--text-body); }
+
+/* news */
+.news { list-style: none; margin: 0; padding: 0; }
+.news li { display: grid; grid-template-columns: var(--date-width) 1fr; gap: var(--space-8); padding: var(--space-6) 0; }
+/* ONE RULE for separator lines: a thin line BETWEEN the items of a list — never under a heading,
+   never after the last item. Filtered lists (Publications, News): site.js marks the visible items that need a line (.sep). */
+.news li + li, .pub + .pub, li.pubref + li.pubref > .pub, .taught li + li, .project + .project,
+.person:nth-child(n+3), .course-block + .course-block { border-top: var(--line-width) solid var(--line); }
+.filtered .news li, .filtered .pub { border-top: 0; }
+.filtered .news li.sep, .filtered .pub.sep { border-top: var(--line-width) solid var(--line); }
+.news time { color: var(--text-2); font-size: var(--text-small); font-variant-numeric: tabular-nums; }
+.news .t { font-weight: var(--weight-bold); display: block; }
+.news .x { display: block; color: var(--text-2); font-size: var(--text-small); margin-top: var(--space-2); }
+.news .x a { color: var(--navy); }
+.news .more { display: inline-block; margin-top: var(--space-3); font-size: var(--text-small); }
+/* a news item with one target is one link; its title turns navy on hover */
+.news a.item, .news .t a { display: block; color: var(--text); text-decoration: none; }
+.news a.item:hover .t, .news .t a:hover { color: var(--navy); }
+.year-h { font-size: var(--h2-small); font-weight: var(--weight-bold); padding: var(--space-10) 0 var(--space-5); margin: 0; }
+
+/* highlight label next to a news title (Award, Grant, Media, ...) */
+.label { display: inline-block; vertical-align: var(--space-1); margin-left: var(--space-5); font-size: var(--text-tiny); font-weight: var(--weight-bold); line-height: var(--lh-tight);
+  color: var(--navy); background: var(--tint); border-radius: var(--radius-badge); padding: 0 var(--space-4); }
+
+/* publications */
+.pub { padding: var(--space-7) 0; }
+.pub .ti { display: block; font-weight: var(--weight-bold); font-size: var(--text-body); line-height: var(--lh-tight); color: var(--text); }
+.pub a.ti:hover { color: var(--navy); text-decoration: none; }
+.pub .au, .pub .ve { font-size: var(--text-small); color: var(--text-2); margin-top: var(--space-2); }
+.pub .ve i { font-style: italic; }
+.award { display: inline-block; font-size: var(--text-tiny); font-weight: var(--weight-bold); color: var(--navy); background: var(--tint); border-radius: var(--radius-badge); padding: var(--space-1) var(--space-4); margin-top: var(--space-4); }
+.pills { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-5); }
+/* one button style for the whole site: light-grey pill, navy text on hover */
+.pills a, .pills button, .filters button, .profiles a, .form button {
+  font: inherit; font-weight: var(--weight-medium); line-height: var(--lh-heading); border: var(--line-width) solid transparent; background: var(--button-bg);
+  color: var(--text); border-radius: var(--radius-pill); cursor: pointer; }
+.pills a:hover, .pills button:hover, .filters button:hover, .profiles a:hover, .form button:hover {
+  background: var(--button-bg-hover); color: var(--navy); text-decoration: none; }
+.alt .pills a, .alt .pills button, .alt .filters button, .alt .profiles a, .alt .form button { background: var(--bg); }
+/* small buttons under each paper (DOI, Video, BibTeX) */
+.pills a, .pills button { font-size: var(--button-text-small); line-height: 1; padding: var(--button-pad-small); }
+/* main buttons (Home profile links, Publications filters, Contact): one size */
+.profiles a, .filters button, .form button { font-size: var(--button-text); padding: var(--button-pad); }
+pre.bib { display: none; margin: var(--space-5) 0 0; padding: var(--space-5) var(--space-6); border-radius: var(--radius-field); background: var(--bg-alt); color: var(--text);
+  font: var(--text-tiny)/var(--lh-tight) var(--font-mono); white-space: pre-wrap; overflow-x: auto; }
+pre.bib.open { display: block; }
+.filters { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-8); }
+.filters button.on { background: var(--button-active-bg); color: var(--button-active-text); }
+.tag { font-size: var(--text-tiny); font-weight: var(--weight-bold); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--text-2); margin-left: var(--space-4); }
+
+/* articles (research areas, courses, papers, news articles) */
+.article { padding: 0 0 var(--page-end); }
+.article > :last-child { margin-bottom: 0; }
+.article figure .video { margin: 0; }   /* inside a figure the figure gives the spacing */
+.paper-body { padding-top: var(--space-8); }
+.policy-body { padding-top: var(--space-7); }
+.article-head h1 { font-size: var(--h1-long); }
+.article h2 { font-size: var(--h2-small); margin: var(--space-11) 0 var(--space-5); }
+.article h3 { font-size: var(--h3); margin: var(--space-10) 0 var(--space-5); }
+.article h4 { font-size: var(--text-body); margin: var(--space-9) 0 var(--space-5); }
+.article p { margin: 0 0 var(--para-space); }
+.article ul, .article ol { padding-left: var(--list-indent); margin: 0 0 var(--para-space); }
+.article li { margin: 0 0 var(--list-item-space); }
+.article figure { margin: var(--space-9) 0; }
+.article figure img, .article > img, .article p img { border-radius: var(--radius-sm); margin: 0 auto; }
+.article audio { display: block; width: 100%; max-width: var(--read); margin: 0 auto; }
+.article figcaption { font-size: var(--text-ui); color: var(--text-2); margin-top: var(--space-5); text-align: center; }
+.article blockquote { margin: var(--space-8) 0; padding: 0 0 0 var(--space-7); border-left: var(--strong-line-width) solid var(--navy); color: var(--text-2); }
+.article ul:has(> li.pubref) { list-style: none; padding: 0; margin: var(--space-4) 0 var(--space-8); }
+.article li.pubref .pub { padding: var(--space-5) 0; }
+/* "Why it matters": no vertical line, the bold label is enough */
+.meta { font-size: var(--text-body); color: var(--text-2); margin-top: var(--space-5); }
+.video { position: relative; display: block; aspect-ratio: var(--video-ratio); margin: var(--space-9) 0; border-radius: var(--radius-sm); overflow: hidden; background: #000; }
+.video img { width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; transition: var(--hover-transition); opacity: var(--video-dim); }
+.video:hover img { transform: var(--hover-zoom); opacity: 1; }
+.video .play { position: absolute; left: 50%; top: 50%; width: var(--play-size); height: var(--play-size); margin: calc(var(--play-size) / -2) 0 0 calc(var(--play-size) / -2); border-radius: 50%;
+  background: var(--play-bg); box-shadow: var(--play-shadow); }
+.video .play::after { content: ""; position: absolute; left: var(--play-arrow-left); top: var(--play-arrow-top); border-style: solid; border-width: var(--play-arrow); border-color: transparent transparent transparent var(--navy); }
+.paper-head .pub { border-top: 0; padding-top: 0; padding-bottom: 0; }
+.paper-head .ti-lg { font-size: var(--h1-long); }
+.paper-head .au { font-size: var(--text-body); color: var(--text-2); margin-top: var(--space-6); }
+.paper-head .ve { font-size: var(--text-body); color: var(--text-2); margin-top: var(--space-1); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* teaching */
+.taught { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4) var(--space-11); }
+.taught h3 { font-size: var(--text-small); color: var(--text-2); font-weight: var(--weight-medium); margin-bottom: var(--space-4); }
+.taught ul { list-style: none; margin: 0; padding: 0; }
+.taught li { padding: var(--space-5) 0; }
+.bigquote { font-size: var(--text-quote); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); margin: 0; max-width: var(--quote-width); }
+.bigquote + cite { display: block; margin-top: var(--space-6); font-style: normal; color: var(--text-2); font-size: var(--text-ui); }
+.course-quotes h3 { font-size: var(--text-small); font-weight: var(--weight-bold); margin-bottom: var(--space-5); }
+.course-quotes h3 span { font-weight: var(--weight-regular); color: var(--text-2); }
+.course-quotes h3 span::before { content: " · "; }
+.quotes .course-quotes blockquote + blockquote { margin-top: var(--space-7); }
+/* one line between the two courses on Teaching */
+/* Teaching: one rhythm: every line and every course part --head-gap apart */
+section.course-block { padding: var(--head-gap) 0; }
+.course-block .project { padding: 0; }
+.course-eval { max-width: var(--quote-width); margin-top: var(--head-gap); }
+.course-chart { margin: 0 0 var(--head-gap); }
+.course-chart figcaption { font-size: var(--text-quote); line-height: var(--lh-tight); margin-bottom: var(--space-6); }   /* same size and color as the quote below the chart */
+.course-chart img { width: 100%; max-width: var(--chart-width); display: block; border-radius: var(--radius-chart); filter: var(--chart-filter); }   /* grey bars, calm with the one-accent palette */
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); margin-top: var(--space-10); }
+.charts figure { margin: 0; }
+.charts img { border-radius: var(--radius-sm); background: var(--figure-bg); }
+/* pictures in pages: diagrams with transparent parts get the figure background, so dark labels stay readable in dark mode */
+.article figure img, .article > img, .article p img { background: var(--figure-bg); }
+.charts figcaption { font-size: var(--text-ui); color: var(--text-2); margin-top: var(--space-5); }
+.quotes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10) var(--space-11); }
+.quotes blockquote { margin: 0; }
+.quotes p { margin: 0; font-size: var(--text-body); }
+.quotes cite { display: block; margin-top: var(--space-5); font-style: normal; font-size: var(--text-ui); color: var(--text-2); }
+section.voice { padding-top: var(--head-gap); }   /* one course shown at a time, right under the line */
+.sec-head .uni { margin: var(--space-3) 0 0; font-size: var(--text-small); color: var(--text-2); }
+
+/* people */
+.group { margin-top: var(--space-11); }
+.group:first-child { margin-top: 0; }
+.group h2 { font-size: var(--h3); margin-bottom: var(--space-2); }
+.people { display: grid; grid-template-columns: repeat(var(--people-cols), 1fr); gap: 0 var(--space-11); }
+.person { display: grid; grid-template-columns: var(--person-photo) 1fr; gap: var(--space-6); align-items: center; padding: var(--space-6) 0; }
+.person img, .person .ph { width: var(--person-photo); height: var(--person-photo); border-radius: var(--radius-person); object-fit: cover; background: var(--bg-alt); }
+.person b { display: block; font-weight: var(--weight-bold); }
+.person span { display: block; font-size: var(--text-small); color: var(--text-2); line-height: var(--lh-tight); }
+.testi { display: grid; gap: var(--space-10); }
+.testi blockquote { margin: 0; max-width: var(--quote-width); }
+.testi p { margin: 0; font-size: var(--text-body); }
+.letters-head { margin-top: var(--space-13); }
+.charts.letters { grid-template-columns: 1fr; gap: var(--space-9); max-width: var(--quote-width); margin-top: var(--space-12); }
+.testi cite { display: block; margin-top: var(--space-5); font-style: normal; font-size: var(--text-ui); color: var(--text-2); }
+
+/* contact */
+.form { display: grid; gap: var(--space-6); max-width: var(--form-width); margin-top: var(--space-4); }
+.form label { font-size: var(--text-ui); font-weight: var(--weight-medium); display: grid; gap: var(--space-3); }
+.form input, .form textarea { font: inherit; font-size: var(--text-body); color: var(--text); background: var(--bg); border: var(--field-border-width) solid var(--field-line); border-radius: var(--radius-field); padding: var(--space-5) var(--space-5); }
+.form input:focus, .form textarea:focus { outline: var(--strong-line-width) solid var(--tint); border-color: var(--navy); }
+.form textarea { min-height: var(--message-height); resize: vertical; }
+.form button { justify-self: start; }
+.form .counter { font-size: var(--text-tiny); color: var(--text-2); justify-self: end; font-weight: var(--weight-regular); }
+.form .form-status { min-height: calc(var(--lh-tight) * 1em); margin: 0; font-size: var(--text-ui); color: var(--text-2); }   /* same size as the note above */
+.form .note { font-size: var(--text-ui); color: var(--text-2); }
+
+footer { padding: var(--space-10) 0 var(--space-12); font-size: var(--text-ui); color: var(--text-2); border-top: var(--line-width) solid var(--line); }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-5) var(--space-8); }
+footer nav { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-7); }
+footer a { color: var(--text-2); display: inline-block; padding: var(--link-pad) 0; }
+
+@media (max-width: 820px) {
+  section { padding: var(--section-space-tablet) 0; }
+  :root { --head-gap: var(--head-gap-phone); --page-end: var(--section-space-tablet); --message-height: var(--message-height-phone); }
+  .page-head { padding: var(--space-11) 0 var(--head-gap); }
+  .intro { padding: var(--intro-top-phone) 0 var(--intro-bottom-phone); }
+  .intro .grid { grid-template-columns: 1fr; gap: var(--intro-gap-phone); }
+  /* phones: 280 px where the screen is tall enough (owner's Galaxy, 3 Nov); on shorter screens (e.g. iPhone) it shrinks
+     just enough to keep Google Scholar · LinkedIn · Contact on the first screen (100svh = visible height without browser bars) */
+  :root { --portrait-width: var(--portrait-phone-max);
+          --portrait-width: clamp(var(--portrait-phone-min), calc((100svh - var(--portrait-phone-reserve)) * var(--portrait-aspect)), var(--portrait-phone-max)); }
+  .bio { margin-top: var(--bio-gap-phone); }
+  .profiles { margin-top: var(--buttons-gap-phone); }
+  .areas { --cols: var(--tile-cols-tablet); --gap-x: var(--space-6); row-gap: var(--space-9); }
+  .project { grid-template-columns: 1fr; gap: var(--space-7); padding: var(--space-9) 0; }
+  .project:nth-child(even) .pic { order: 0; }
+  .charts, .quotes, .taught, .people { grid-template-columns: 1fr; }
+  .menu-btn { display: flex; }   /* centred in the bar */
+  .nav ul { display: none; position: absolute; top: var(--bar-height); left: 0; right: 0; flex-direction: column; gap: 0; padding: var(--space-4) var(--space-8) var(--space-6);
+            background: var(--bg); border-bottom: var(--line-width) solid var(--line); font-size: var(--text-body); }
+  .nav ul.open { display: flex; }
+  .nav ul a { display: block; padding: var(--space-5) 0; }
+}
+@media (max-width: 520px) {
+  :root { --text-body: var(--text-body-phone); }
+  .profiles { gap: var(--buttons-space-phone); }
+  .profiles a { padding: var(--buttons-pad-phone); }
+  .areas { --cols: var(--tile-cols-phone); row-gap: 0; }
+  /* phones (one column): a thin line between research items */
+  .areas .area + .area { border-top: var(--line-width) solid var(--line); margin-top: var(--list-space-phone); padding-top: var(--list-space-phone); }
+  .people .person + .person { border-top: var(--line-width) solid var(--line); }   /* one column: line between every person */
+  footer .wrap { flex-direction: column-reverse; }   /* phones: links first, copyright as the last line */
+  .news li { grid-template-columns: 1fr; gap: var(--space-2); }
+  .sec-head { gap: var(--space-6); }   /* heading left, 'All …' link right on the same line, also on phones */
+}

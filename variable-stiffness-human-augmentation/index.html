@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mechanically adaptive robot exoskeletons to improve human mobility</title><meta name="description" content="Exoskeletons that work like a bicycle for the body: adaptive springs that help people move faster and carry more, without large motors."><link rel="canonical" href="https://davidbraunrobotics.com/variable-stiffness-human-augmentation/"><meta property="og:type" content="website"><meta property="og:site_name" content="David Braun"><meta property="og:title" content="Mechanically adaptive robot exoskeletons to improve human mobility"><meta property="og:description" content="Exoskeletons that work like a bicycle for the body: adaptive springs that help people move faster and carry more, without large motors."><meta property="og:url" content="https://davidbraunrobotics.com/variable-stiffness-human-augmentation/"><meta property="og:image" content="https://davidbraunrobotics.com/media/research/augmented-running.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css?v=393ec1c3"><script src="/site.js?v=393ec1c3"></script></head><body><header class="nav"><div class="wrap"><a class="brand" href="/">David Braun</a><button class="menu-btn" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><ul><li><a href="/research/" class=on>Research</a></li><li><a href="/publications/">Publications</a></li><li><a href="/teaching/">Teaching</a></li><li><a href="/people/">Alumni</a></li><li><a href="/news/">News</a></li><li><a href="/contact/">Contact</a></li></ul></div></header><div class="page-head article-head"><div class="wrap narrow"><a class="crumb" href="/research/">Research</a><h1>Mechanically adaptive robot exoskeletons to improve human mobility</h1></div></div><div class="wrap narrow"><div class="article"><p>A bicycle has no motor, yet a person on a bicycle travels much farther and faster than on foot. This research develops the theory of robot exoskeletons that work in the same spirit: unpowered devices, or devices driven by small actuators such as a small electric motor, that give a person capabilities beyond those of an unassisted human, to an extent previously thought to require large powered actuators.</p>
+<p>These exoskeletons go beyond familiar passive devices such as the bicycle: they contain springs of controllable stiffness, which store energy under active control. In such a spring, the energy stored is no longer tied to how far the spring is compressed. This new capability could advance both human and robot mobility.</p>
+<figure><a class="video" href="https://www.youtube.com/watch?v=AnGOjwEGLXA" title="Compliant Actuation for Human Performance Augmentation"><img src="/media/video/AnGOjwEGLXA.jpg" alt="Video: Compliant Actuation for Human Performance Augmentation" loading="lazy"><span class="play"></span></a></figure>
+<h2>Running with a variable stiffness spring leg</h2>
+<p>The top speeds of running, ice skating, and cycling follow the time the legs have to supply energy, as the figure below shows. In natural running, the legs supply energy only while the foot is on the ground, about 20% of the time. With a variable stiffness spring leg, a person could in theory supply energy during up to 96% of each step. Even if energy were supplied during only 60% of each step, the theoretical model predicts a top speed of 18 m/s, about 50% above the top speed of natural running (12.3 m/s).</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/how-to-run-50-faster-without-external-energy/">How to Run 50% Faster without External Energy</a><div class="au">A. Sutrisno and D. J. Braun</div><div class="ve"><i>Science Advances</i>, vol. 6, no. 13, Art. no. eaay1950, 2020</div><div class="pills"><a href="https://doi.org/10.1126/sciadv.aay1950">DOI</a><a href="https://www.youtube.com/watch?v=UYbQG-6uQ4g" title="How to run 50% faster without external energy">Video 1</a><a href="https://www.youtube.com/watch?v=RAbgx5lrfRg" title="How to run 50% faster without external energy">Video 2</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Sutrisno2020,
+  author  = {A. Sutrisno and D. J. Braun},
+  title   = {How to Run 50\% Faster without External Energy},
+  journal = SA,
+  volume  = {6},
+  number  = {13},
+  pages   = {eaay1950},
+  year    = {2020},
+  doi     = {10.1126/sciadv.aay1950}
+}</pre></div></li></ul>
+<figure><img src="/media/research/top-speed-comparison.jpg" alt="Top speeds of running, ice skating, cycling, and augmented running, plotted against the time the legs can supply energy" loading="lazy" data-width="616" width="616"></figure>
+<p>The figure below shows how augmented running works: the person compresses the spring while the leg is in the air, and the spring releases the stored energy when the leg touches the ground.</p>
+<figure><img src="/media/research/augmented-running-spring.jpg" alt="Augmented running: the leg compresses the spring in the air, and the spring releases the stored energy at ground contact" loading="lazy" data-width="1024" width="1024"></figure>
+<p>The video below shows a thought experiment: a 100-meter race in which a world-class athlete wearing the variable stiffness spring leg exoskeleton races against the 9.58-second world record set by the Jamaican sprinter Usain Bolt in 2009.</p>
+<figure><a class="video" href="https://www.youtube.com/watch?v=UYbQG-6uQ4g" title="How to run 50% faster without external energy"><img src="/media/video/UYbQG-6uQ4g.jpg" alt="Video: How to run 50% faster without external energy" loading="lazy"><span class="play"></span></a></figure>
+<h2>Rethinking assistive robotics with floating spring legs</h2>
+<p>An ordinary spring delivers more force only when it is compressed further. The floating spring leg is a variable stiffness mechanism that changes stiffness while conserving energy. In a simulated sit-to-stand task, the leg stores energy at low stiffness and then switches to high stiffness to amplify the force: a task performed at net-zero energy cost that is not possible with fixed-stiffness springs. Possible uses range from assistive devices for older adults to industrial robots.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/variable-stiffness-floating-spring-leg/">Variable Stiffness Floating Spring Leg: Performing Net-Zero Energy Cost Tasks Not Achievable Using Fixed Stiffness Springs</a><div class="au">S. Y. Kim and D. J. Braun</div><div class="ve"><i>IEEE Robotics and Automation Letters</i>, vol. 8, no. 9, pp. 5400–5407, 2023</div><div class="pills"><a href="https://doi.org/10.1109/LRA.2023.3292584">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Kim2023,
+  author  = {S. Y. Kim and D. J. Braun},
+  title   = {Variable Stiffness Floating Spring Leg: Performing Net-Zero Energy Cost Tasks Not Achievable Using Fixed Stiffness Springs},
+  journal = IEEEral,
+  volume  = {8},
+  number  = {9},
+  pages   = {5400--5407},
+  year    = {2023},
+  doi     = {10.1109/LRA.2023.3292584}
+}</pre></div></li></ul>
+<figure><img src="/media/research/floating-spring-leg-energy-storage.png" alt="Floating spring leg: the same energy stored at low stiffness is released at high stiffness to amplify force" loading="lazy" data-width="851" width="851"></figure>
+<figure><img src="/media/research/floating-spring-leg-sit-to-stand.png" alt="Example of a sit-to-stand task performed with the floating spring leg" loading="lazy" data-width="704" width="704"></figure>
+<figure><a class="video" href="https://www.youtube.com/watch?v=pGFfyALRdps" title="Innovative Engineering: The Power of Variable Stiffness Springs"><img src="/media/video/pGFfyALRdps.jpg" alt="Video: Innovative Engineering: The Power of Variable Stiffness Springs" loading="lazy"><span class="play"></span></a></figure>
+<h2>Customizing assistance with variable stiffness springs</h2>
+<p>This robot joint lets the user adjust the stiffness, much like shifting gears on a bicycle, to suit different tasks such as walking or running. In a leg swing experiment, the hip stiffness was adjusted smoothly during continuous leg motion. Possible uses include prostheses and robotic exoskeletons that adapt to each activity.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Conference"><a class="ti" href="/design-of-a-variable-stiffness-spring-with-human-selectable-stiffness/">Design of a Variable Stiffness Spring with Human-Selectable Stiffness</a><div class="au">C. W. Mathews and D. J. Braun</div><div class="ve"><i>IEEE International Conference on Robotics and Automation</i>, pp. 7385–7390, 2023</div><div class="pills"><a href="https://doi.org/10.1109/ICRA48891.2023.10161305">DOI</a><a href="https://www.youtube.com/watch?v=XHKD-TCMrvk" title="Design of a Variable Stiffness Spring with Human-Selectable Stiffness">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@inproceedings{Mathews2023conf,
+  author    = {C. W. Mathews and D. J. Braun},
+  title     = {Design of a Variable Stiffness Spring with Human-Selectable Stiffness},
+  booktitle = IEEEicra,
+  pages     = {7385--7390},
+  address   = {London, United Kingdom},
+  month     = {May},
+  year      = {2023},
+  doi       = {10.1109/ICRA48891.2023.10161305}
+}</pre></div></li></ul>
+<figure><img src="/media/research/human-adaptable-variable-stiffness-spring.png" alt="A variable stiffness robot joint where the user selects the joint stiffness, much like the gears of a bicycle" loading="lazy" data-width="1024" width="1024"></figure>
+<figure><a class="video" href="https://www.youtube.com/watch?v=XHKD-TCMrvk" title="Design of a Variable Stiffness Spring with Human-Selectable Stiffness"><img src="/media/video/XHKD-TCMrvk.jpg" alt="Video: Design of a Variable Stiffness Spring with Human-Selectable Stiffness" loading="lazy"><span class="play"></span></a></figure>
+<h2>Energy accumulation via repeated squatting</h2>
+<p>An ordinary spring needs a large force to store a large amount of energy. This variable stiffness spring removes that link: the energy stored no longer depends on the maximum force applied, so small, repeated forces can store a large amount of energy. An assistive robotic leg demonstrates the idea by accumulating energy as the user performs repeated squats. Possible uses include assistive devices and robotic exoskeletons.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Conference"><a class="ti" href="/novel-spring-mechanism-enables-iterative-energy-accumulation-under-force-and-deformation-constraints/">Novel Spring Mechanism Enables Iterative Energy Accumulation under Force and Deformation Constraints</a><div class="au">C. Dempsey and D. J. Braun</div><div class="ve"><i>IEEE International Conference on Robotics and Automation</i>, pp. 7391–7397, 2023</div><div class="pills"><a href="https://doi.org/10.1109/ICRA48891.2023.10161577">DOI</a><a href="https://www.youtube.com/watch?v=v3XSQnJpyLs" title="Novel Spring Mechanism Enables Iterative Energy Accumulation…">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@inproceedings{Dempsey2023conf,
+  author    = {C. Dempsey and D. J. Braun},
+  title     = {Novel Spring Mechanism Enables Iterative Energy Accumulation under Force and Deformation Constraints},
+  booktitle = IEEEicra,
+  pages     = {7391--7397},
+  address   = {London, United Kingdom},
+  month     = {May},
+  year      = {2023},
+  doi       = {10.1109/ICRA48891.2023.10161577}
+}</pre></div></li></ul>
+<figure><img src="/media/research/iterative-energy-accumulation-leg.png" alt="Assistive robotic leg that accumulates energy in a spring through repeated squats" loading="lazy" data-width="512" width="512"></figure>
+<figure><a class="video" href="https://www.youtube.com/watch?v=v3XSQnJpyLs" title="Novel Spring Mechanism Enables Iterative Energy Accumulation under Force and Deformation Constraints"><img src="/media/video/v3XSQnJpyLs.jpg" alt="Video: Novel Spring Mechanism Enables Iterative Energy Accumulation under Force and Deformation Constraints" loading="lazy"><span class="play"></span></a></figure>
+<h2>Walking with a variable stiffness spring leg</h2>
+<p>This work establishes the theoretical limits of fast walking with a heavy load in a human-driven robot exoskeleton. The theory predicts that a variable stiffness spring exoskeleton could bring a person carrying one extra body weight to race-walking speed (4 m/s).</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/theory-of-fast-walking-with-human-driven-load-carrying-robot-exoskeletons/">Theory of Fast Walking with Human-Driven Load-Carrying Robot Exoskeletons</a><div class="au">T. Zhang and D. J. Braun</div><div class="ve"><i>IEEE Transactions on Neural Systems and Rehabilitation Engineering</i>, vol. 30, pp. 1971–1981, 2022</div><div class="pills"><a href="https://doi.org/10.1109/TNSRE.2022.3190208">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Zhang2022,
+  author  = {T. Zhang and D. J. Braun},
+  title   = {Theory of Fast Walking with Human-Driven Load-Carrying Robot Exoskeletons},
+  journal = IEEEtnsre,
+  volume  = {30},
+  pages   = {1971--1981},
+  year    = {2022},
+  doi     = {10.1109/TNSRE.2022.3190208}
+}</pre></div></li></ul>
+<figure><img src="/media/research/load-carrying-exoskeleton-walking.jpg" alt="Person walking with a variable stiffness spring exoskeleton while carrying an extra load" loading="lazy" data-width="1024" width="1024"></figure>
+<figure><img src="/media/research/race-walking-velocity-energy.jpg" alt="Forward velocity and energy used at race-walking speed with a spring leg exoskeleton" loading="lazy" data-width="512" width="512"></figure>
+<h2>Human-driven compliant transmission mechanism</h2>
+<p>An exoskeleton that works like a bicycle needs a mechanism through which the person can supply energy. This research develops a human-driven compliant transmission mechanism: the person supplies energy while the leg is in the air, the mechanism stores it, and the stored energy is released when the leg is on the ground.</p>
+<figure><img src="/media/research/human-driven-compliant-transmission.jpg" alt="Human-driven compliant transmission mechanism" loading="lazy" data-width="512" width="512"></figure>
+<ul><li class="pubref"><div class="pub" data-filter="Conference"><a class="ti" href="/human-driven-compliant-transmission-mechanism/">Human Driven Compliant Transmission Mechanism</a><div class="au">T. Zhang and D. J. Braun</div><div class="ve"><i>IEEE International Conference on Robotics and Automation</i>, pp. 7094–7099, 2021</div><div class="pills"><a href="https://doi.org/10.1109/ICRA48506.2021.9561669">DOI</a><a href="https://www.youtube.com/watch?v=QZUs_c8j3AY" title="Human-driven compliant transmission mechanisms">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@inproceedings{Zhang2021conf,
+  author    = {T. Zhang and D. J. Braun},
+  title     = {Human Driven Compliant Transmission Mechanism},
+  booktitle = IEEEicra,
+  pages     = {7094--7099},
+  address   = {Xi&#x27;an, China},
+  month     = {May},
+  year      = {2021},
+  doi       = {10.1109/ICRA48506.2021.9561669}
+}</pre></div></li></ul>
+<h2>Variable stiffness springs for human augmentation</h2>
+<p>Variable stiffness springs change stiffness at low energy cost, without doing net mechanical work. For human augmentation, they could take over part of the work of opposing muscles that tense together to stiffen a joint, and so reduce muscle activity and metabolic energy cost. In practice, this requires a spring that is compact, lightweight, and portable. The figure below shows one such design.</p>
+<figure><img src="/media/research/knee-variable-stiffness-exoskeleton.jpg" alt="Variable stiffness spring exoskeleton for the knee joint" loading="lazy" data-width="512" width="512"></figure>
+<ul><li class="pubref"><div class="pub" data-filter="Conference"><a class="ti" href="/stiffness-modulator-a-novel-actuator-for-human-augmentation/">Stiffness Modulator: A Novel Actuator for Human Augmentation</a><div class="au">H. F. Lau, A. Sutrisno, T. H. Chong and D. J. Braun</div><div class="ve"><i>IEEE International Conference on Robotics and Automation</i>, pp. 7742–7748, 2018</div><div class="pills"><a href="https://doi.org/10.1109/ICRA.2018.8463186">DOI</a><a href="https://www.youtube.com/watch?v=OV9iRtGDMM0" title="Stiffness Modulator: A Novel Actuator for Human Augmentation">Video 1</a><a href="https://www.youtube.com/watch?v=YebNeS4CO3o" title="Stiffness Modulator: A Novel Actuator for Human Augmentation">Video 2</a><button data-bib>BibTeX</button></div><pre class="bib">@inproceedings{Lau2018conf,
+  author    = {H. F. Lau and A. Sutrisno and T. H. Chong and D. J. Braun},
+  title     = {Stiffness Modulator: A Novel Actuator for Human Augmentation},
+  booktitle = {IEEE International Conference on Robotics and Automation},
+  pages     = {7742--7748},
+  address   = {Brisbane, Australia},
+  month     = {May},
+  year      = {2018},
+  doi       = {10.1109/ICRA.2018.8463186}
+}</pre></div></li><li class="pubref"><div class="pub" data-filter="Conference"><a class="ti" href="/compliant-actuation-for-energy-efficient-impedance-modulation/">Compliant Actuation for Energy Efficient Impedance Modulation</a><div class="au">D. J. Braun, S. Apte, O. Adiyatov, A. Dahiya and N. Hogan</div><div class="ve"><i>IEEE International Conference on Robotics and Automation</i>, pp. 636–641, 2016</div><div class="pills"><a href="https://doi.org/10.1109/ICRA.2016.7487188">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@inproceedings{Braun2016conf,
+  author    = {D. J. Braun and S. Apte and O. Adiyatov and A. Dahiya and N. Hogan},
+  title     = {Compliant Actuation for Energy Efficient Impedance Modulation},
+  booktitle = {IEEE International Conference on Robotics and Automation},
+  pages     = {636--641},
+  address   = {Stockholm, Sweden},
+  month     = {May},
+  year      = {2016},
+  doi       = {10.1109/ICRA.2016.7487188}
+}</pre></div></li></ul>
+<figure><a class="video" href="https://www.youtube.com/watch?v=OV9iRtGDMM0" title="Stiffness Modulator: A Novel Actuator for Human Augmentation"><img src="/media/video/OV9iRtGDMM0.jpg" alt="Video: Stiffness Modulator: A Novel Actuator for Human Augmentation" loading="lazy"><span class="play"></span></a></figure></div></div><footer><div class="wrap"><span>© 2026 David Braun</span><nav><a href="https://scholar.google.com/citations?user=AmwZkPAAAAAJ">Google Scholar</a><a href="https://www.linkedin.com/in/david-braun-robotics/">LinkedIn</a><a href="https://orcid.org/0000-0002-3672-3847">ORCID</a><a href="https://www.youtube.com/@davidbraunrobotics">YouTube</a><a href="/privacy-policy/">Privacy policy</a><a href="/contact/">Contact</a></nav></div></footer></body></html>

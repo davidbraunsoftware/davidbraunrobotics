@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Physics-based numerical simulation methods for predicting robot behavior</title><meta name="description" content="Accurate physics-based simulation of robots that touch the ground and collide with their surroundings, to predict robot behavior and improve control."><link rel="canonical" href="https://davidbraunrobotics.com/numerical-simulation-methods/"><meta property="og:type" content="website"><meta property="og:site_name" content="David Braun"><meta property="og:title" content="Physics-based numerical simulation methods for predicting robot behavior"><meta property="og:description" content="Accurate physics-based simulation of robots that touch the ground and collide with their surroundings, to predict robot behavior and improve control."><meta property="og:url" content="https://davidbraunrobotics.com/numerical-simulation-methods/"><meta property="og:image" content="https://davidbraunrobotics.com/media/research/pendulum-simulation.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css?v=393ec1c3"><script src="/site.js?v=393ec1c3"></script></head><body><header class="nav"><div class="wrap"><a class="brand" href="/">David Braun</a><button class="menu-btn" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><ul><li><a href="/research/" class=on>Research</a></li><li><a href="/publications/">Publications</a></li><li><a href="/teaching/">Teaching</a></li><li><a href="/people/">Alumni</a></li><li><a href="/news/">News</a></li><li><a href="/contact/">Contact</a></li></ul></div></header><div class="page-head article-head"><div class="wrap narrow"><a class="crumb" href="/research/">Research</a><h1>Physics-based numerical simulation methods for predicting robot behavior</h1></div></div><div class="wrap narrow"><div class="article"><p>A walking robot is constrained by the ground: each foot can push against the ground but cannot pass through it, and the constraints change every time a foot lands or lifts off. Robots like this are constrained dynamical systems, described by differential equations together with holonomic and non-holonomic (algebraic) constraints. One way to model them is with switching differential-algebraic equations (SDAEs): a set of differential equations combined with a switching set of algebraic constraints. This approximates unilaterally constrained, non-holonomic systems with piecewise holonomic systems. This research develops numerical simulators that solve differential-algebraic equations efficiently, to predict robot motion accurately and to support the design of better controllers.</p>
+<h2>Modeling and simulating robot motion using switching DAEs</h2>
+<p>A differential-algebraic formulation with switching constraints models the non-smooth dynamics of robots that are subject to changing constraints and multiple impacts. The formulation combines a single, structurally simple equation of motion, a set of switching kinematic constraints and the plastic impact law to represent robots that interact with the environment.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Conference"><a class="ti" href="/algorithmic-resolution-of-multiple-impacts-in-non-smooth-mechanical-systems-with-switching-constraints/">Algorithmic Resolution of Multiple Impacts in Non-smooth Mechanical Systems with Switching Constraints</a><div class="au">Y. Li, H. Yu and D. J. Braun</div><div class="ve"><i>IEEE International Conference on Robotics and Automation</i>, pp. 7639–7645, 2019</div><div class="pills"><a href="https://doi.org/10.1109/ICRA.2019.8793767">DOI</a><a href="https://www.youtube.com/watch?v=nTCai2krREw" title="Algorithmic Resolution of Multiple Impacts in Non-smooth Mechanical Systems">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@inproceedings{Lee2019conf,
+  author    = {Y. Li and H. Yu and D. J. Braun},
+  title     = {Algorithmic Resolution of Multiple Impacts in Non-smooth Mechanical Systems with Switching Constraints},
+  booktitle = {IEEE International Conference on Robotics and Automation},
+  pages     = {7639--7645},
+  address   = {Montreal, Canada},
+  month     = {May},
+  year      = {2019},
+  doi       = {10.1109/ICRA.2019.8793767}
+}</pre></div></li></ul>
+<figure><a class="video" href="https://www.youtube.com/watch?v=MMVOpjiLWBE" title="Recovery from perturbation"><img src="/media/video/MMVOpjiLWBE.jpg" alt="Video: Recovery from perturbation" loading="lazy"><span class="play"></span></a></figure>
+<figure><a class="video" href="https://www.youtube.com/watch?v=nTCai2krREw" title="Algorithmic Resolution of Multiple Impacts in Non-smooth Mechanical Systems"><img src="/media/video/nTCai2krREw.jpg" alt="Video: Algorithmic Resolution of Multiple Impacts in Non-smooth Mechanical Systems" loading="lazy"><span class="play"></span></a></figure>
+<h2>Modeling and simulating robot motion using DAEs</h2>
+<p>Many constrained dynamical systems can be modeled with differential-algebraic equations (DAEs). Ordinary differential equations (ODEs) can be integrated accurately with explicit numerical methods, such as the Runge-Kutta method, but accurate integration of DAEs usually requires sophisticated implicit methods. This research develops explicit integration algorithms for DAEs that are easy to implement and accurate. The starting point is that every numerical solution contains errors, so neither the kinematic constraints nor motion invariants, such as conservation of energy, can be satisfied exactly. Systematic derivations based on this assumption lead to new error-correction terms for the equations of motion.</p>
+<p>The method significantly improves numerical accuracy when tested against analytical solutions of simple problems and numerical solutions of complex problems modeled with ODEs. The example below compares the new integrator for DAEs with the Runge-Kutta method, which can solve only ODEs precisely.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/simulation-of-constrained-mechanical-systems-part-i-an-equation-of-motion/">Simulation of Constrained Mechanical Systems: Part I - An Equation of Motion</a><div class="au">D. J. Braun and M. Goldfarb</div><div class="ve"><i>ASME Journal of Applied Mechanics</i>, vol. 79, no. 4, Art. no. 041017, 2012</div><div class="pills"><a href="https://doi.org/10.1115/1.4005572">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Braun2012b,
+  author  = {D. J. Braun and M. Goldfarb},
+  title   = {Simulation of Constrained Mechanical Systems: Part {I} - {An} Equation of Motion},
+  journal = ASMEjam,
+  volume  = {79},
+  number  = {4},
+  pages   = {041017},
+  year    = {2012},
+  doi     = {10.1115/1.4005572}
+}</pre></div></li><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/simulation-of-constrained-mechanical-systems-part-ii-explicit-numerical-integration/">Simulation of Constrained Mechanical Systems: Part II - Explicit Numerical Integration</a><div class="au">D. J. Braun and M. Goldfarb</div><div class="ve"><i>ASME Journal of Applied Mechanics</i>, vol. 79, no. 4, Art. no. 041018, 2012</div><div class="pills"><a href="https://doi.org/10.1115/1.4005573">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Braun2012c,
+  author  = {D. J. Braun and M. Goldfarb},
+  title   = {Simulation of Constrained Mechanical Systems: Part {II} - {Explicit} Numerical Integration},
+  journal = ASMEjam,
+  volume  = {79},
+  number  = {4},
+  pages   = {041018},
+  year    = {2012},
+  doi     = {10.1115/1.4005573}
+}</pre></div></li><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/eliminating-constraint-drift-in-the-numerical-simulation-of-constrained-dynamical-systems/">Eliminating Constraint Drift in the Numerical Simulation of Constrained Dynamical Systems</a><div class="au">D. J. Braun and M. Goldfarb</div><div class="ve"><i>Computer Methods in Applied Mechanics and Engineering</i>, vol. 198, no. 37–40, pp. 3151–3160, 2009</div><div class="pills"><a href="https://doi.org/10.1016/j.cma.2009.05.013">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Braun2009a,
+  author  = {D. J. Braun and M. Goldfarb},
+  title   = {Eliminating Constraint Drift in the Numerical Simulation of Constrained Dynamical Systems},
+  journal = CMAME,
+  volume  = {198},
+  number  = {37--40},
+  pages   = {3151--3160},
+  year    = {2009},
+  doi     = {10.1016/j.cma.2009.05.013}
+}</pre></div></li></ul>
+<figure><img src="/media/research/pendulum-integration-error.jpg" alt="Pendulum example comparing the error accumulation of four different numerical integration methods" loading="lazy"></figure></div></div><footer><div class="wrap"><span>© 2026 David Braun</span><nav><a href="https://scholar.google.com/citations?user=AmwZkPAAAAAJ">Google Scholar</a><a href="https://www.linkedin.com/in/david-braun-robotics/">LinkedIn</a><a href="https://orcid.org/0000-0002-3672-3847">ORCID</a><a href="https://www.youtube.com/@davidbraunrobotics">YouTube</a><a href="/privacy-policy/">Privacy policy</a><a href="/contact/">Contact</a></nav></div></footer></body></html>

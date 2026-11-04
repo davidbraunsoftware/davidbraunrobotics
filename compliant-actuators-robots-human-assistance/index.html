@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mechanically adaptive actuators to advance robot autonomy</title><meta name="description" content="Robot actuators that work like muscles and tendons: springs that adapt their mechanics to the task, so robots do more with less energy."><link rel="canonical" href="https://davidbraunrobotics.com/compliant-actuators-robots-human-assistance/"><meta property="og:type" content="website"><meta property="og:site_name" content="David Braun"><meta property="og:title" content="Mechanically adaptive actuators to advance robot autonomy"><meta property="og:description" content="Robot actuators that work like muscles and tendons: springs that adapt their mechanics to the task, so robots do more with less energy."><meta property="og:url" content="https://davidbraunrobotics.com/compliant-actuators-robots-human-assistance/"><meta property="og:image" content="https://davidbraunrobotics.com/media/research/parallel-variable-stiffness-actuator.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css?v=393ec1c3"><script src="/site.js?v=393ec1c3"></script></head><body><header class="nav"><div class="wrap"><a class="brand" href="/">David Braun</a><button class="menu-btn" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><ul><li><a href="/research/" class=on>Research</a></li><li><a href="/publications/">Publications</a></li><li><a href="/teaching/">Teaching</a></li><li><a href="/people/">Alumni</a></li><li><a href="/news/">News</a></li><li><a href="/contact/">Contact</a></li></ul></div></header><div class="page-head article-head"><div class="wrap narrow"><a class="crumb" href="/research/">Research</a><h1>Mechanically adaptive actuators to advance robot autonomy</h1></div></div><div class="wrap narrow"><div class="article"><p>Actuators are the muscles of a robot. In the human body, muscles work together with tendons, which store and release energy. Compliant actuators bring the same idea to robots: springs are placed in series or in parallel with the motors. The most common types are series elastic actuators (SEAs) and variable stiffness actuators (VSAs). This research develops new types of compliant actuators that adapt their mechanics to the task.</p>
+<h2>Custom-designed magnetic spring actuators</h2>
+<p>A motor uses energy not only when it does useful work, but also when it holds a position under load or brakes. In repetitive tasks, such as pick-and-place operations or oscillating motions, much of the energy is therefore spent without doing useful work. Magnetic-spring actuators address this problem: the motor is combined with a magnetic spring whose non-uniform magnetic field is designed for one specific task. The spring then supplies much of the torque the task requires, and the motor supplies less. In experiments, energy use fell by up to 50%.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Conference"><a class="ti" href="/energy-minimization-using-custom-designed-magnetic-spring-actuators/">Energy Minimization using Custom-Designed Magnetic-Spring Actuators</a><div class="au">Y. Y. Fu, A. U. Kilic and D. J. Braun</div><div class="ve"><i>IEEE/RSJ International Conference on Intelligent Robots and Systems</i>, pp. 3534–3539, 2024</div><div class="pills"><a href="https://doi.org/10.1109/IROS58592.2024.10802861">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@inproceedings{Fu2024conf,
+  author    = {Y. Y. Fu and A. U. Kilic and D. J. Braun},
+  title     = {Energy Minimization using Custom-Designed Magnetic-Spring Actuators},
+  booktitle = IEEEiros,
+  pages     = {3534--3539},
+  address   = {Abu Dhabi, United Arab Emirates},
+  month     = {Oct},
+  year      = {2024},
+  doi       = {10.1109/IROS58592.2024.10802861}
+}</pre></div></li></ul>
+<figure><img src="/media/research/motor-non-uniform-magnetic-field.png" alt="Motor with an optimized, non-uniform magnetic field compared with a conventional motor: 50% lower energy cost in robot actuators" loading="lazy" data-width="772" width="772"></figure>
+<h2>Parallel variable stiffness actuators (PVSA)</h2>
+<p>A Parallel Variable Stiffness Actuator (PVSA) places a variable stiffness spring in parallel with a direct-drive motor. It combines the strengths of both: precise force control from the motor and controllable energy storage from the spring. A compact design uses a flat motor connected to a torsional spring with adjustable mechanical advantage. Unlike series elastic and variable stiffness actuators, PVSAs are not subject to a fundamental limit on force control bandwidth. Unlike parallel elastic actuators with fixed stiffness, they can accumulate energy through resonance, even when the deformation of the spring is limited and the motion of the load is constrained. A smaller direct-drive motor combined with a variable stiffness spring can therefore match the peak power of a larger motor without losing force control precision. Possible uses include industrial robots that manipulate precisely and hold weight at zero energy cost, and walking, jumping, running, and swimming robots or exoskeletons that need resonant motion within limited joint ranges.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/design-of-parallel-variable-stiffness-actuators/">Design of Parallel Variable Stiffness Actuators</a><div class="au">C. W. Mathews and D. J. Braun</div><div class="ve"><i>IEEE Transactions on Robotics</i>, vol. 39, no. 1, pp. 768–782, 2023</div><div class="pills"><a href="https://doi.org/10.1109/TRO.2022.3197088">DOI</a><a href="https://www.youtube.com/watch?v=ZKLsolWrldU" title="Parallel Variable Stiffness Actuator">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Mathews2023,
+  author  = {C. W. Mathews and D. J. Braun},
+  title   = {Design of Parallel Variable Stiffness Actuators},
+  journal = IEEEtr,
+  volume  = {39},
+  number  = {1},
+  pages   = {768--782},
+  year    = {2023},
+  doi     = {10.1109/TRO.2022.3197088}
+}</pre></div></li></ul>
+<figure><img src="/media/research/parallel-variable-stiffness-actuator-prototype.jpg" alt="Prototype of a parallel variable stiffness actuator: a flat direct-drive motor with an adjustable torsional spring" loading="lazy"></figure>
+<figure><a class="video" href="https://www.youtube.com/watch?v=ZKLsolWrldU" title="Parallel Variable Stiffness Actuator"><img src="/media/video/ZKLsolWrldU.jpg" alt="Video: Parallel Variable Stiffness Actuator" loading="lazy"><span class="play"></span></a></figure>
+<h2>Variable stiffness springs (VSS)</h2>
+<p>Holding or changing the stiffness of a human joint by tensing opposing muscles costs metabolic energy, even when the muscles do no net mechanical work. A device working in parallel with a human joint could therefore help by supplying stiffness alone. Variable stiffness spring actuators do exactly this. Built around a leaf spring of variable length, the actuator changes stiffness over a large range at low energy cost, even under large deflection, because the force on the driving motor stays low. Unlike variable stiffness actuators, which use two motors to set both stiffness and equilibrium position and to do net mechanical work, it uses a single motor, changes only the stiffness, and does no net mechanical work unless externally loaded. Experiments demonstrated stiffness augmentation during human–machine collaboration in demanding balance and weight-bearing tasks. A device that does little or no mechanical work can therefore still augment the human body, at low energy cost.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/variable-stiffness-spring-actuators-for-low-energy-cost-human-augmentation/">Variable Stiffness Spring Actuators for Low Energy Cost Human Augmentation</a><div class="au">D. J. Braun, V. Chalvet, T. H. Chong, S. S. Apte and N. Hogan</div><div class="ve"><i>IEEE Transactions on Robotics</i>, vol. 35, no. 6, pp. 1435–1449, 2019</div><div class="pills"><a href="https://doi.org/10.1109/TRO.2019.2929686">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Braun2019a,
+  author  = {D. J. Braun and V. Chalvet and T. H. Chong and S. S. Apte and N. Hogan},
+  title   = {Variable Stiffness Spring Actuators for Low Energy Cost Human Augmentation},
+  journal = IEEEtr,
+  volume  = {35},
+  number  = {6},
+  pages   = {1435--1449},
+  year    = {2019},
+  doi     = {10.1109/TRO.2019.2929686}
+}</pre></div></li></ul>
+<h2>Positive-negative stiffness actuators (PNSA)</h2>
+<p>Most compliant actuators have a tunable positive stiffness: they push back when displaced. Changing both the stiffness and the equilibrium position usually requires two motors or closed-loop control. Adding a passive negative stiffness mechanism to a tunable positive stiffness mechanism changes this. The resulting positive-negative stiffness actuator controls both the stiffness and the equilibrium position open-loop, with a single motor.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/positive-negative-stiffness-actuators/">Positive-Negative Stiffness Actuators</a><div class="au">D. J. Braun, V. Chalvet and A. Dahiya</div><div class="ve"><i>IEEE Transactions on Robotics</i>, vol. 35, no. 1, pp. 162–173, 2019</div><div class="pills"><a href="https://doi.org/10.1109/TRO.2018.2872284">DOI</a><a href="https://www.youtube.com/watch?v=BH13-3tF9QM" title="Positive-Negative Stiffness Actuators">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Braun2019b,
+  author  = {D. J. Braun and V. Chalvet and A. Dahiya},
+  title   = {Positive-Negative Stiffness Actuators},
+  journal = IEEEtr,
+  volume  = {35},
+  number  = {1},
+  pages   = {162--173},
+  year    = {2019},
+  doi     = {10.1109/TRO.2018.2872284}
+}</pre></div></li></ul>
+<figure><img src="/media/research/positive-negative-stiffness-actuator.jpg" alt="Prototype of a positive-negative stiffness actuator" loading="lazy"></figure>
+<figure><a class="video" href="https://www.youtube.com/watch?v=BH13-3tF9QM" title="Positive-Negative Stiffness Actuators"><img src="/media/video/BH13-3tF9QM.jpg" alt="Video: Positive-Negative Stiffness Actuators" loading="lazy"><span class="play"></span></a></figure>
+<h2>Computational design of variable stiffness actuators</h2>
+<p>Variable stiffness mechanisms have mostly been designed from experience, which limits the designs that can be found. This research turns the design into a mathematical optimization problem. Solving it computationally identifies variable stiffness mechanisms, actuators, and robots that need little power by design.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/algorithmic-design-of-low-power-variable-stiffness-mechanisms/">Algorithmic Design of Low Power Variable Stiffness Mechanisms</a><div class="au">V. Chalvet and D. J. Braun</div><div class="ve"><i>IEEE Transactions on Robotics</i>, vol. 33, no. 6, pp. 1508–1515, 2017</div><div class="pills"><a href="https://doi.org/10.1109/TRO.2017.2719049">DOI</a><a href="https://www.youtube.com/watch?v=71y3enbbjAk" title="Algorithmic Design of Variable-Stiffness Mechanisms">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Chalvet2017a,
+  author  = {V. Chalvet and D. J. Braun},
+  title   = {Algorithmic Design of Low Power Variable Stiffness Mechanisms},
+  journal = IEEEtr,
+  volume  = {33},
+  number  = {6},
+  pages   = {1508--1515},
+  year    = {2017},
+  doi     = {10.1109/TRO.2017.2719049}
+}</pre></div></li><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/criterion-for-the-design-of-low-power-variable-stiffness-mechanisms/">Criterion for the Design of Low Power Variable Stiffness Mechanisms</a><div class="au">V. Chalvet and D. J. Braun</div><div class="ve"><i>IEEE Transactions on Robotics</i>, vol. 33, no. 4, pp. 1002–1010, 2017</div><div class="pills"><a href="https://doi.org/10.1109/TRO.2017.2689068">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Chalvet2017b,
+  author  = {V. Chalvet and D. J. Braun},
+  title   = {Criterion for the Design of Low Power Variable Stiffness Mechanisms},
+  journal = IEEEtr,
+  volume  = {33},
+  number  = {4},
+  pages   = {1002--1010},
+  year    = {2017},
+  doi     = {10.1109/TRO.2017.2689068}
+}</pre></div></li></ul>
+<figure><a class="video" href="https://www.youtube.com/watch?v=71y3enbbjAk" title="Algorithmic Design of Variable-Stiffness Mechanisms"><img src="/media/video/71y3enbbjAk.jpg" alt="Video: Algorithmic Design of Variable-Stiffness Mechanisms" loading="lazy"><span class="play"></span></a></figure></div></div><footer><div class="wrap"><span>© 2026 David Braun</span><nav><a href="https://scholar.google.com/citations?user=AmwZkPAAAAAJ">Google Scholar</a><a href="https://www.linkedin.com/in/david-braun-robotics/">LinkedIn</a><a href="https://orcid.org/0000-0002-3672-3847">ORCID</a><a href="https://www.youtube.com/@davidbraunrobotics">YouTube</a><a href="/privacy-policy/">Privacy policy</a><a href="/contact/">Contact</a></nav></div></footer></body></html>

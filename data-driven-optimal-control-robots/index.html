@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Real-time optimal control of robots | David Braun</title><meta name="description" content="Real-time optimal control by experiment: methods that are half model-based and half data-driven and close the sim-to-real gap on real robots."><link rel="canonical" href="https://davidbraunrobotics.com/data-driven-optimal-control-robots/"><meta property="og:type" content="website"><meta property="og:site_name" content="David Braun"><meta property="og:title" content="Real-time optimal control of robots | David Braun"><meta property="og:description" content="Real-time optimal control by experiment: methods that are half model-based and half data-driven and close the sim-to-real gap on real robots."><meta property="og:url" content="https://davidbraunrobotics.com/data-driven-optimal-control-robots/"><meta property="og:image" content="https://davidbraunrobotics.com/media/research/hardware-in-the-loop-optimal-control.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css?v=393ec1c3"><script src="/site.js?v=393ec1c3"></script></head><body><header class="nav"><div class="wrap"><a class="brand" href="/">David Braun</a><button class="menu-btn" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><ul><li><a href="/research/" class=on>Research</a></li><li><a href="/publications/">Publications</a></li><li><a href="/teaching/">Teaching</a></li><li><a href="/people/">Alumni</a></li><li><a href="/news/">News</a></li><li><a href="/contact/">Contact</a></li></ul></div></header><div class="page-head article-head"><div class="wrap narrow"><a class="crumb" href="/research/">Research</a><h1>Real-time optimal control of robots</h1></div></div><div class="wrap narrow"><div class="article"><p>Optimal control computes the best possible motion for a robot, but the calculation relies on a model, and no model is exact. The motion that is optimal in simulation is therefore no longer optimal on the real machine: this is the sim-to-real gap. This research develops optimal control by experiment, in which the robot improves the motion during real experiments, so that measured data, not model predictions, decide how the robot moves.</p>
+<h2>The sim-to-real gap</h2>
+<p>Model-based optimal control computes efficiently, but because the model is uncertain, the resulting performance is conservative. Data-driven optimal control reduces the effect of an uncertain model, but needs a large amount of training data, which is slow to collect on real robots. Neither approach alone closes the gap for complex engineering systems, such as assistive, industrial, and medical robots, where accurate models are hard to obtain.</p>
+<h2>Half model-based, half data-driven</h2>
+<p>The method developed here combines both approaches. An approximate model speeds up the computation, while measured data decide each improvement, which avoids the errors of predicting future motion with an inexact model. The result is optimal control that is <strong>half model-based and half data-driven</strong>, and fast enough for <strong>real-time hardware-in-the-loop control</strong>. Experiments on a three-link, direct-drive, torque-controlled robot demonstrate the benefits of the method.</p>
+<figure><a class="video" href="https://www.youtube.com/watch?v=ZKPghPo3O-c" title="Hardware-in-the-Loop Optimal Control of Robots"><img src="/media/video/ZKPghPo3O-c.jpg" alt="Video: Hardware-in-the-Loop Optimal Control of Robots" loading="lazy"><span class="play"></span></a></figure>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/learning-finite-horizon-optimal-control-with-unknown-control-affine-dynamics/">Learning Finite-Horizon Optimal Control with Unknown Control-Affine Dynamics</a><div class="au">Y. Chen, Y. Li and D. J. Braun</div><div class="ve"><i>Systems &amp; Control Letters</i>, vol. 203, Art. no. 106161, 2025</div><div class="pills"><a href="https://doi.org/10.1016/j.sysconle.2025.106161">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Chen2025,
+  author  = {Y. Chen and Y. Li and D. J. Braun},
+  title   = {Learning Finite-Horizon Optimal Control with Unknown Control-Affine Dynamics},
+  journal = SCL,
+  volume  = {203},
+  pages   = {106161},
+  note    = {Art. no. 106161},
+  year    = {2025},
+  doi     = {10.1016/j.sysconle.2025.106161}
+}</pre></div></li><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/data-driven-iterative-optimal-control-for-switched-dynamical-systems/">Data-Driven Iterative Optimal Control for Switched Dynamical Systems</a><div class="au">Y. Chen, Y. Li and D. J. Braun</div><div class="ve"><i>IEEE Robotics and Automation Letters</i>, vol. 8, no. 1, pp. 296–303, 2023</div><div class="pills"><a href="https://doi.org/10.1109/LRA.2022.3226075">DOI</a><a href="https://www.youtube.com/watch?v=W0u1_h91HoY" title="Data-Driven Iterative Optimal Control for Switched Dynamical Systems">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Chen2023,
+  author  = {Y. Chen and Y. Li and D. J. Braun},
+  title   = {Data-Driven Iterative Optimal Control for Switched Dynamical Systems},
+  journal = IEEEral,
+  volume  = {8},
+  number  = {1},
+  pages   = {296--303},
+  year    = {2023},
+  doi     = {10.1109/LRA.2022.3226075}
+}</pre></div></li><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/iterative-online-optimal-feedback-control/">Iterative Online Optimal Feedback Control</a><div class="au">Y. Chen and D. J. Braun</div><div class="ve"><i>IEEE Transactions on Automatic Control</i>, vol. 66, no. 2, pp. 566–580, 2021</div><div class="pills"><a href="https://doi.org/10.1109/TAC.2020.2986211">DOI</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Chen2021,
+  author  = {Y. Chen and D. J. Braun},
+  title   = {Iterative Online Optimal Feedback Control},
+  journal = IEEEtac,
+  volume  = {66},
+  number  = {2},
+  pages   = {566--580},
+  year    = {2021},
+  doi     = {10.1109/TAC.2020.2986211}
+}</pre></div></li><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/hardware-in-the-loop-iterative-optimal-feedback-control-without-model-based-future-prediction/">Hardware-in-the-Loop Iterative Optimal Feedback Control without Model-Based Future Prediction</a><div class="au">Y. Chen and D. J. Braun</div><div class="ve"><i>IEEE Transactions on Robotics</i>, vol. 35, no. 6, pp. 1419–1434, 2019</div><div class="pills"><a href="https://doi.org/10.1109/TRO.2019.2929014">DOI</a><a href="https://www.youtube.com/watch?v=ZKPghPo3O-c" title="Hardware-in-the-Loop Optimal Control of Robots">Video 1</a><a href="https://www.youtube.com/watch?v=MUfGiD9Rjng" title="Optimal Control without Model-based Prediction">Video 2</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Chen2019a,
+  author  = {Y. Chen and D. J. Braun},
+  title   = {Hardware-in-the-Loop Iterative Optimal Feedback Control without Model-Based Future Prediction},
+  journal = IEEEtr,
+  volume  = {35},
+  number  = {6},
+  pages   = {1419--1434},
+  year    = {2019},
+  doi     = {10.1109/TRO.2019.2929014}
+}</pre></div></li></ul>
+<figure><a class="video" href="https://www.youtube.com/watch?v=MUfGiD9Rjng" title="Optimal Control without Model-based Prediction"><img src="/media/video/MUfGiD9Rjng.jpg" alt="Video: Optimal Control without Model-based Prediction" loading="lazy"><span class="play"></span></a></figure>
+<h2>Optimal control of compliantly actuated robots</h2>
+<p>Compliant actuators, inspired by muscles and tendons, give robots mechanical adaptability and agility. They also make robots harder to control: the actuators are nonlinear, have limits on range, speed, and force, and offer more ways to move than the task requires. This research shows how impedance control strategies follow from the first principles of optimality, and how to use them on robots with variable impedance actuators. On the DLR Hand Arm System, a humanoid arm now called David, optimal control produced a dynamic ball throw that requires precise timing. The motion emerged from numerical optimization alone, without human data or demonstrations, and the transfer from simulation to the real robot took two weeks.</p>
+<ul><li class="pubref"><div class="pub" data-filter="Journal"><a class="ti" href="/robots-driven-by-compliant-actuators-optimal-control-under-actuation-constraints/">Robots Driven by Compliant Actuators: Optimal Control under Actuation Constraints</a><div class="au">D. J. Braun, F. Petit, F. Huber, S. Haddadin, P. van der Smagt, A. Albu-Schaffer and S. Vijayakumar</div><div class="ve"><i>IEEE Transactions on Robotics</i>, vol. 29, no. 5, pp. 1085–1101, 2013</div><div class="award">2013 King-Sun Fu Memorial IEEE Transactions on Robotics Best Paper Award</div><div class="pills"><a href="https://doi.org/10.1109/TRO.2013.2271099">DOI</a><a href="https://www.youtube.com/watch?v=dP5f1_J9eSs" title="Sim-to-Real in 2 Weeks on the DLR Hand-Arm System">Video</a><button data-bib>BibTeX</button></div><pre class="bib">@article{Braun2013,
+  author  = {D. J. Braun and F. Petit and F. Huber and S. Haddadin and P. van der Smagt and A. Albu-Sch\&quot;{a}ffer and S. Vijayakumar},
+  title   = {Robots Driven by Compliant Actuators: Optimal Control under Actuation Constraints},
+  journal = IEEEtr,
+  volume  = {29},
+  number  = {5},
+  pages   = {1085--1101},
+  year    = {2013},
+  doi     = {10.1109/TRO.2013.2271099}
+}</pre></div></li></ul>
+<figure><a class="video" href="https://www.youtube.com/watch?v=dP5f1_J9eSs" title="Robots Driven by Compliant Actuators: Optimal Control under Actuation Constraints"><img src="/media/video/dP5f1_J9eSs.jpg" alt="Video: Robots Driven by Compliant Actuators: Optimal Control under Actuation Constraints" loading="lazy"><span class="play"></span></a></figure>
+<figure><a class="video" href="https://www.youtube.com/watch?v=OqJrfX9e4ek" title="Optimal variable stiffness control: Formulation and application to explosive movement tasks"><img src="/media/video/OqJrfX9e4ek.jpg" alt="Video: Optimal variable stiffness control: Formulation and application to explosive movement tasks" loading="lazy"><span class="play"></span></a></figure></div></div><footer><div class="wrap"><span>© 2026 David Braun</span><nav><a href="https://scholar.google.com/citations?user=AmwZkPAAAAAJ">Google Scholar</a><a href="https://www.linkedin.com/in/david-braun-robotics/">LinkedIn</a><a href="https://orcid.org/0000-0002-3672-3847">ORCID</a><a href="https://www.youtube.com/@davidbraunrobotics">YouTube</a><a href="/privacy-policy/">Privacy policy</a><a href="/contact/">Contact</a></nav></div></footer></body></html>
