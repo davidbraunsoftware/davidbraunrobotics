@@ -131,6 +131,7 @@
   --weight-medium: 500;
   --weight-bold: 600;
   --strong-line-width: 2px;          /* quote bar, form fields, focus ring */
+  --focus-offset: 3px;               /* space between an element and its focus ring */
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   /* ---- specific parts ---- */
   --bar-opacity: 82%;                /* top bar: how solid its background is */
@@ -227,7 +228,7 @@ section { padding: var(--section-space) 0; }
 .intro { padding: var(--intro-top) 0 var(--intro-bottom); border-bottom: var(--line-width) solid var(--line); }   /* line between the introduction and Research (both white) */
 .intro .grid { display: grid; grid-template-columns: var(--portrait-width) 1fr; gap: var(--space-12); align-items: center; }
 .portrait { width: var(--portrait-width); max-width: 100%; aspect-ratio: var(--portrait-frame); object-fit: cover; border-radius: var(--radius-lg); }
-.portrait.cutout { border-radius: 0; background: none; object-fit: contain; object-position: center bottom; aspect-ratio: auto; height: auto;   /* no empty band above the head */
+.portrait.cutout { border-radius: 0; background: none; object-fit: contain; object-position: center bottom; aspect-ratio: var(--portrait-aspect); height: auto;   /* the picture's own proportions: no empty band above the head, space kept while it loads */
 
   -webkit-mask-image: linear-gradient(to bottom, #000 var(--portrait-fade-bottom), transparent 100%),
     linear-gradient(to right, transparent 0, #000 var(--portrait-fade-sides), #000 calc(100% - var(--portrait-fade-sides)), transparent 100%),
@@ -348,6 +349,12 @@ pre.bib.open { display: block; }
 .paper-head .au { font-size: var(--text-body); color: var(--text-2); margin-top: var(--space-6); }
 .paper-head .ve { font-size: var(--text-body); color: var(--text-2); margin-top: var(--space-1); }
 
+/* keyboard use: a clear focus ring; the skip link appears only when reached with the Tab key */
+:focus-visible { outline: var(--strong-line-width) solid var(--navy); outline-offset: var(--focus-offset); }
+.skip { position: absolute; left: var(--space-5); top: var(--space-5); z-index: 100; padding: var(--space-4) var(--space-6);
+  background: var(--bg); color: var(--navy); border-radius: var(--radius-field); transform: translateY(-200%); }
+.skip:focus { transform: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* teaching */
