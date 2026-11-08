@@ -249,6 +249,8 @@ section { padding: var(--section-space) 0; }
 .band img { width: 100%; height: var(--band-height); object-fit: cover; object-position: var(--band-focus); border-radius: var(--radius-lg); }
 
 /* research tiles (home) */
+.project.no-pic { grid-template-columns: 1fr; }   /* blog post without a picture (Blog page) */
+.project p.post-date { margin: 0 0 var(--space-3); font-size: var(--text-small); }
 /* tiles in rows of --cols; an incomplete last row starts at the left (owner: not centred) */
 .areas { --cols: var(--tile-cols); --gap-x: var(--space-8); display: flex; flex-wrap: wrap; justify-content: flex-start; gap: var(--space-10) var(--gap-x); }
 .areas .area { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap-x)) / var(--cols));   /* tile width from the column count and gap settings */ }
